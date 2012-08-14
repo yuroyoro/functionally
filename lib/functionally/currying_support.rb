@@ -4,6 +4,6 @@ module Functionally::CurryingSupport
   end
 
   def self.included(klass)
-    klass.send(:alias_method, :^, :curry)
+    klass.send(:alias_method, :&, :curry)
   end
 end

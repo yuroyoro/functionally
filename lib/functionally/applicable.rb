@@ -5,6 +5,10 @@ module Functionally::Applicable
     raise TypeError, "wrong type for apply function.#{f.class}"
   end
 
+  def __!
+    lambda{|f| self._!(f)}
+  end
+
 
   def self.included(klass)
     klass.send :alias_method,  '｜＞', :_!
