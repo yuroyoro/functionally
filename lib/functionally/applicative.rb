@@ -12,6 +12,10 @@ module Functionally::Applicative
     end
   end
 
+  def applies
+    self.map(&:__!)
+  end
+
   def __applicative(functors)
     self.flat_map{|_| functors.map{|f|
       f.respond_to?(:to_proc) ?  f.call(_) : f._!(_) }
