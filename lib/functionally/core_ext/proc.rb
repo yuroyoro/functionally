@@ -5,5 +5,5 @@ class Proc
   include Functionally::ToProcSupport
   include Functionally::Functor
 
-  alias_method :&, :curry
+  alias_method :%, :curry
 end
