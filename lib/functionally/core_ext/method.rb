@@ -4,5 +4,7 @@ class Method
   include Functionally::CurryingSupport
   include Functionally::Flipable
   include Functionally::ToProcSupport
+  include Functionally::CallableFunctor
   include Functionally::Functor
+  include Functionally::FunctorApplicatable
 end

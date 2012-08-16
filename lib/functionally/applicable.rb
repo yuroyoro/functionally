@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 module Functionally::Applicable
-  def _!(f)
-    return f.to_proc.call(self) if f.respond_to?(:to_proc)
-    raise TypeError, "wrong type for apply function.#{f.class}"
+
+  def apply(f = nil, &block)
+    return block.call(self) if block_given?
+    f.to_proc.call(self) if __function_or_raise!(f)
   end
 
-  def __!
-    lambda{|f| self._!(f)}
+  def to_apply
+    !(self._ :apply)
   end
-
 
   def self.included(klass)
-    klass.send :alias_method,  '｜＞', :_!
-    klass.send :alias_method,  :applies, :_!
+    klass.send(:include, Functionally::Utils)
+    klass.send :alias_method,  :_!, :apply
+    klass.send :alias_method,  :__!, :to_apply
   end
 end

@@ -3,5 +3,5 @@ class Object
   include Functionally::Pointed
 
   alias_method :_m, :method
-  alias_method :~, :method
+  alias_method :_, :method
 end

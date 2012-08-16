@@ -5,6 +5,6 @@ module Functionally::ToProcSupport
 
   def self.included(klass)
     klass.send(:alias_method, :_f, :to_proc)
-    klass.send(:alias_method, :_, :to_proc)
+    klass.send(:alias_method, "!", :to_proc)
   end
 end
